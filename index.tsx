@@ -19,9 +19,7 @@ export default (tsconfigFile: TsconfigFile, dirname = "."): WebpackAliases => {
   return Object.keys(paths).reduce((aliases: WebpackAliases, pathName) => {
     const alias = replaceGlobs(pathName)
     const path = replaceGlobs(paths[pathName][0])
-    return {
-      ...aliases,
-      [alias]: resolve(dirname, baseUrl, path)
-    }
+    aliases[alias] = resolve(dirname, baseUrl, path)
+    return aliases
   }, {})
 }
