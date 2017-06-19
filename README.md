@@ -9,7 +9,7 @@ This utility function converts `paths` found in `tsconfig.json` file to notation
 
 in your `webpack.config`
 ```javascript
-const convertPathsToAliases = require("convert-tsconfig-paths-to-webpack-aliases")
+const convertPathsToAliases = require("convert-tsconfig-paths-to-webpack-aliases").default
 const tsconfig = require("./tsconfig.json") // all comments in tsconfig.json must be removed
 const aliases = convertPathsToAliases(tsconfig) 
 

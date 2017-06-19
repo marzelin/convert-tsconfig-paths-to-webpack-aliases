@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "marzelin <marzelin@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marzelin/convert-tsconfig-paths-to-webpack-aliases"
+  },
   "devDependencies": {
     "@types/jest": "^20.0.0",
     "@types/node": "^7.0.31",
@@ -13,8 +17,12 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "tsc --sourceMap false index.tsx "
+    "build": "tsc --sourceMap false --declaration true index.tsx "
   },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "jest": {
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
