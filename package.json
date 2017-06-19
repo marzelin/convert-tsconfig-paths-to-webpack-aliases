@@ -17,7 +17,8 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "tsc --sourceMap false --declaration true index.tsx "
+    "build": "tsc --sourceMap false --declaration true index.tsx ",
+    "prepublish": "npm run build"
   },
   "files": [
     "index.js",
