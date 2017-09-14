@@ -1,9 +1,11 @@
 import { resolve } from "path"
 
-type TsconfigFile = {
-  baseUrl: string
-  paths: {
-    [aliasName: string]: string[]
+export interface TsconfigFile {
+  compilerOptions: {
+    baseUrl: string
+    paths: {
+      [aliasName: string]: string[]
+    }
   }
 }
 
@@ -15,7 +17,7 @@ const replaceGlobs = (path: string): string =>
   path.replace(/(\/\*\*)*\/\*$/, "")
 
 export default (tsconfigFile: TsconfigFile, dirname = "."): WebpackAliases => {
-  const { baseUrl, paths } = tsconfigFile
+  const { baseUrl, paths } = tsconfigFile.compilerOptions
   return Object.keys(paths).reduce((aliases: WebpackAliases, pathName) => {
     const alias = replaceGlobs(pathName)
     const path = replaceGlobs(paths[pathName][0])
